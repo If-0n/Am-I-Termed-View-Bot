@@ -24,15 +24,16 @@ headers = {
 
 current_view = 0
 
+url = input("Your URL |~-> ")
 amount = int(input("Amount Of Views |~-> "))
 threads = int(input("Number of Threads |~-> "))
 
 def make_request(_):
-    global current_view  # Declare as global to modify the global variable
-    response = requests.post("https://amitermed.com/hW8MZA", headers=headers)
+    global current_view 
+    response = requests.post(url, headers=headers)
     if response.status_code == 200:
         gradient_print(f"{current_view} | +1 View!", start_color=Color.lime_green, end_color=Color.ghost_white)
-        current_view += 1  # Use += for incrementing
+        current_view += 1 
     else:
         gradient_print("Failed.", start_color=Color.red, end_color=Color.ghost_white)
 
